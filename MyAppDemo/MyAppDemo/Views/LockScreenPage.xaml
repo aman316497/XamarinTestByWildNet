@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyAppDemo.Views.LockScreenPage"
+             BackgroundColor="#151924"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        
+        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                     >
+            <Image Source="lock_icon.png" HeightRequest="200" WidthRequest="200" />
+
+            <Label x:Name="lblTimeOut" TextColor="White" FontSize="Title" HorizontalTextAlignment="Center" IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Timer}" Value="0">
+                        <Setter Property="Text" Value="Time Out"/>
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+
+                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference lblTimer}, Path=IsVisible}" Value="True">
+                        <Setter Property="IsVisible" Value="False"/>
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+            <Label x:Name="lblTimer" TextColor="White" FontSize="Title" HorizontalTextAlignment="Center">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference lblTimeOut}, Path=IsVisible}" Value="True">
+                        <Setter Property="IsVisible" Value="False"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference lblTimeOut}, Path=IsVisible}" Value="False">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </Label.Triggers>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Time "></Span>
+                        <Span Text="{Binding Timer}"></Span>
+                    </FormattedString>
+                </Label.FormattedText>
+                
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

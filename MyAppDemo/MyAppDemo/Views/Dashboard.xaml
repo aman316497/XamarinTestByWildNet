@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyAppDemo.Views.Dashboard"
+             BackgroundColor="#151924"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <BoxView HeightRequest="20"/>
+            <StackLayout Padding="0" Spacing="0" Margin="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Image Source="Astronaut.png"  Aspect="Fill"  HeightRequest="200"    />
+            </StackLayout>
+            <BoxView HeightRequest="40"/>
+            <StackLayout HorizontalOptions="Center" Padding="10">
+                <Label Text="{Binding QuestonTitle}" FontSize="Title" TextColor="White" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            
+            <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="Label" x:Key="lblStyleKey">
+                            <Setter Property="VerticalOptions" Value="Center"/>
+                            <Setter Property="FontSize" Value="Subtitle"/>
+                            <Setter Property="TextColor" Value="White"/>
+                        </Style>
+                        <Style TargetType="Image" x:Key="imgStyleKey">
+                            <Setter Property="Source" Value="Avtaar.png"/>
+                            <Setter Property="Aspect" Value="AspectFit"/>
+                            <Setter Property="HeightRequest" Value="50"/>
+                            <Setter Property="WidthRequest" Value="50"/>
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+                <StackLayout Orientation="Vertical" Spacing="10"  HorizontalOptions="FillAndExpand">
+                    <Frame x:Name="frSelecton1" AutomationId="tpFrame1" CornerRadius="10" >
+                        <Frame.Background>
+                            <!-- StartPoint defaults to (0,0)      
+             Endpoint defaults to (1,1) -->
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9DCEFF" Offset="0"/>
+                                <GradientStop Color="#92A3FD" Offset="1" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer  NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{Binding Source={x:StaticResource imgStyleKey}}"/>
+                            <Label Text="{Binding Option1}" Style="{Binding Source={x:StaticResource lblStyleKey}}"/>
+                            <Label Text=""/>
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame x:Name="frSelecton2" AutomationId="tpFrame2" CornerRadius="10">
+                        <Frame.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9DCEFF" Offset="0"/>
+                                <GradientStop Color="#92A3FD" Offset="1" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer  NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{Binding Source={x:StaticResource imgStyleKey}}"/>
+                            <Label Text="{Binding Option3}" Style="{Binding Source={x:StaticResource lblStyleKey}}"/>
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="FillAndExpand">
+                    <Frame x:Name="frSelecton3" AutomationId="tpFrame3" CornerRadius="10">
+                        <Frame.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9DCEFF" Offset="0"/>
+                                <GradientStop Color="#92A3FD" Offset="1" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer  NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{Binding Source={x:StaticResource imgStyleKey}}"/>
+                            <Label Text="{Binding Option2}" Style="{Binding Source={x:StaticResource lblStyleKey}}"/>
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame x:Name="frSelecton4" AutomationId="tpFrame4" CornerRadius="10">
+                        <Frame.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9DCEFF" Offset="0"/>
+                                <GradientStop Color="#92A3FD" Offset="1" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer  NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Style="{Binding Source={x:StaticResource imgStyleKey}}"/>
+                            <Label Text="{Binding Option4}" Style="{Binding Source={x:StaticResource lblStyleKey}}"/>
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+
+            </StackLayout>
+
+            <Button AutomationId="btnNext" x:Name="btnNext" Text="Next" CornerRadius="10" Margin="10" Clicked="Button_Clicked" IsEnabled="False" >
+                <Button.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#7836FF" Offset="0"/>
+                        <GradientStop Color="#D941FF" Offset="1" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <Button AutomationId="btnSkip" Text="Skip" BackgroundColor="Transparent" CornerRadius="10" Margin="10" Clicked="Button_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
